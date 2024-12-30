@@ -1,6 +1,7 @@
 package br.com.tomus.controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
@@ -9,7 +10,7 @@ import javax.inject.Named;
 
 import br.com.tomus.model.Pessoa;
 
-@Named
+@Named("bean")
 @SessionScoped
 public class PessoaMB implements Serializable{
 
@@ -17,7 +18,8 @@ public class PessoaMB implements Serializable{
 	
 	@Inject
 	private Pessoa pessoa;
-	private List<Pessoa> pessoas;
+
+	private List<Pessoa> pessoas = new ArrayList<>();
 	
 	public String adicionar() {
 		pessoas.add(pessoa);
@@ -45,7 +47,4 @@ public class PessoaMB implements Serializable{
 	public void setPessoas(List<Pessoa> pessoas) {
 		this.pessoas = pessoas;
 	}
-	
-	
-	
 }
